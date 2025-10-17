@@ -68,9 +68,33 @@ const Index = () => {
           style={{ animationDelay: "1s" }}
         />
         <img 
+          src={nuvem} 
+          alt="" 
+          className="absolute bottom-32 left-10 w-28 opacity-50 animate-float"
+          style={{ animationDelay: "2s" }}
+        />
+        <img 
           src={sol} 
           alt="" 
-          className="absolute top-10 right-10 w-20 animate-spin-slow"
+          className="absolute top-10 right-10 w-24 animate-pulse"
+        />
+        <img 
+          src={pipa} 
+          alt="" 
+          className="absolute top-1/4 right-16 w-20 opacity-70 animate-float"
+          style={{ animationDelay: "0.5s" }}
+        />
+        <img 
+          src={bola} 
+          alt="" 
+          className="absolute top-1/3 left-12 w-16 opacity-60 animate-bounce-gentle"
+          style={{ animationDelay: "1.5s" }}
+        />
+        <img 
+          src={girassol} 
+          alt="" 
+          className="absolute bottom-40 right-8 w-20 opacity-70 animate-float"
+          style={{ animationDelay: "2.5s" }}
         />
         
         <div className="relative z-10 flex flex-col items-center text-center space-y-8 animate-fade-in">
@@ -97,14 +121,42 @@ const Index = () => {
       </section>
 
       {/* Section 2: Invitation */}
-      <section className="relative py-16 px-6 bg-card">
+      <section className="relative py-16 px-6 bg-card overflow-hidden">
         <img 
           src={bandeiras} 
           alt="" 
           className="absolute top-0 left-0 w-full h-auto"
         />
+        <img 
+          src={nuvem} 
+          alt="" 
+          className="absolute top-24 left-4 w-28 opacity-40 animate-float"
+          style={{ animationDelay: "0s" }}
+        />
+        <img 
+          src={nuvem} 
+          alt="" 
+          className="absolute top-40 right-4 w-32 opacity-40 animate-float"
+          style={{ animationDelay: "1.5s" }}
+        />
+        <img 
+          src={sol} 
+          alt="" 
+          className="absolute top-32 right-8 w-16 opacity-50 animate-pulse"
+        />
+        <img 
+          src={bola} 
+          alt="" 
+          className="absolute bottom-20 left-6 w-14 opacity-30 animate-bounce-gentle"
+        />
+        <img 
+          src={pipa} 
+          alt="" 
+          className="absolute bottom-32 right-6 w-16 opacity-30 animate-float"
+          style={{ animationDelay: "2s" }}
+        />
         
-        <div className="max-w-2xl mx-auto mt-16 text-center space-y-6 animate-fade-in">
+        <div className="max-w-2xl mx-auto mt-16 text-center space-y-6 animate-fade-in relative z-10">
           <div className="prose prose-lg mx-auto">
             <p className="text-xl leading-relaxed text-foreground font-medium italic">
               Era uma vez um garotinho sorridente,<br />
@@ -130,8 +182,24 @@ const Index = () => {
       </section>
 
       {/* Section 3: Event Details */}
-      <section className="relative py-16 px-6 bg-background">
-        <div className="max-w-2xl mx-auto space-y-8">
+      <section className="relative py-16 px-6 bg-background overflow-hidden">
+        <img 
+          src={bandeiras} 
+          alt="" 
+          className="absolute top-0 left-0 w-full h-auto opacity-20"
+        />
+        <img 
+          src={girassol} 
+          alt="" 
+          className="absolute top-16 right-8 w-24 opacity-20 animate-float"
+        />
+        <img 
+          src={bola} 
+          alt="" 
+          className="absolute bottom-16 left-8 w-20 opacity-20 animate-bounce-gentle"
+        />
+        
+        <div className="max-w-2xl mx-auto space-y-8 relative z-10">
           <h2 className="text-4xl font-bold text-center text-foreground mb-12">
             Anote na Agenda!
           </h2>
@@ -323,7 +391,7 @@ const Index = () => {
             <img 
               src={girassol} 
               alt="" 
-              className="w-16 h-auto animate-spin-slow"
+              className="w-16 h-auto animate-bounce-gentle"
             />
           </div>
         </div>
