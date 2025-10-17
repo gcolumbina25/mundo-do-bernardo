@@ -5,6 +5,8 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { ChevronDown, MapPin, Calendar, Clock, Gift } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { MusicDialog } from "@/components/MusicDialog";
 import mascote from "@/assets/mascote.png";
 import logotipo from "@/assets/logotipo.png";
 import nuvem from "@/assets/nuvem.png";
@@ -22,7 +24,7 @@ const Index = () => {
     guests: "1",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!formData.name || !formData.attending) {
@@ -34,17 +36,35 @@ const Index = () => {
       return;
     }
 
-    toast({
-      title: "Confirmação Enviada! 🎉",
-      description: "Obrigado por confirmar sua presença!",
-    });
-    
-    // Reset form
-    setFormData({ name: "", attending: "", guests: "1" });
+    try {
+      const { error } = await supabase.functions.invoke("send-rsvp-email", {
+        body: {
+          name: formData.name,
+          attending: formData.attending,
+          guests: parseInt(formData.guests),
+        },
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Confirmação Enviada! 🎉",
+        description: "Obrigado por confirmar sua presença!",
+      });
+      
+      setFormData({ name: "", attending: "", guests: "1" });
+    } catch (error) {
+      console.error("Error sending RSVP:", error);
+      toast({
+        title: "Erro ao enviar",
+        description: "Ocorreu um erro. Tente novamente.",
+        variant: "destructive",
+      });
+    }
   };
 
   const openMap = () => {
-    window.open("https://www.google.com/maps/search/Chácara+Sá+Menezes", "_blank");
+    window.open("https://maps.app.goo.gl/FKCRhhkCo4mPZiH46", "_blank");
   };
 
   const scrollToNext = () => {
@@ -53,8 +73,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
+      <MusicDialog />
+      
       {/* Section 1: Hero */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-12 overflow-hidden">
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-12 overflow-hidden">
         <img 
           src={nuvem} 
           alt="" 
@@ -97,17 +119,17 @@ const Index = () => {
           style={{ animationDelay: "2.5s" }}
         />
         
-        <div className="relative z-10 flex flex-col items-center text-center space-y-8 animate-fade-in">
+        <div className="relative z-10 flex flex-col items-center text-center space-y-6 sm:space-y-8 animate-fade-in max-w-md mx-auto">
           <img 
             src={logotipo} 
             alt="Mundo do Bernardo" 
-            className="w-72 max-w-full drop-shadow-lg"
+            className="w-56 sm:w-72 max-w-full drop-shadow-lg"
           />
           
           <img 
             src={mascote} 
             alt="Bernardo" 
-            className="w-80 max-w-full drop-shadow-2xl animate-bounce-gentle"
+            className="w-72 sm:w-80 max-w-full drop-shadow-2xl animate-bounce-gentle"
           />
           
           <div className="flex flex-col items-center space-y-2 animate-pulse">
@@ -121,7 +143,7 @@ const Index = () => {
       </section>
 
       {/* Section 2: Invitation */}
-      <section className="relative py-16 px-6 bg-card overflow-hidden">
+      <section className="relative py-12 sm:py-16 px-4 sm:px-6 bg-card overflow-hidden">
         <img 
           src={bandeiras} 
           alt="" 
@@ -156,9 +178,9 @@ const Index = () => {
           style={{ animationDelay: "2s" }}
         />
         
-        <div className="max-w-2xl mx-auto mt-16 text-center space-y-6 animate-fade-in relative z-10">
-          <div className="prose prose-lg mx-auto">
-            <p className="text-xl leading-relaxed text-foreground font-medium italic">
+        <div className="max-w-2xl mx-auto mt-12 sm:mt-16 text-center space-y-4 sm:space-y-6 animate-fade-in relative z-10 px-4">
+          <div className="prose prose-base sm:prose-lg mx-auto">
+            <p className="text-lg sm:text-xl leading-relaxed text-foreground font-medium italic">
               Era uma vez um garotinho sorridente,<br />
               Que chegou trazendo amor de repente!<br />
               Com seus olhinhos brilhantes de alegria,<br />
@@ -182,7 +204,7 @@ const Index = () => {
       </section>
 
       {/* Section 3: Event Details */}
-      <section className="relative py-16 px-6 bg-background overflow-hidden">
+      <section className="relative py-12 sm:py-16 px-4 sm:px-6 bg-background overflow-hidden">
         <img 
           src={bandeiras} 
           alt="" 
@@ -199,47 +221,47 @@ const Index = () => {
           className="absolute bottom-16 left-8 w-20 opacity-20 animate-bounce-gentle"
         />
         
-        <div className="max-w-2xl mx-auto space-y-8 relative z-10">
-          <h2 className="text-4xl font-bold text-center text-foreground mb-12">
+        <div className="max-w-2xl mx-auto space-y-6 sm:space-y-8 relative z-10">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center text-foreground mb-8 sm:mb-12">
             Anote na Agenda!
           </h2>
           
-          <div className="space-y-6">
-            <div className="bg-card rounded-2xl p-6 shadow-lg border border-border flex items-start space-x-4 animate-slide-in">
-              <div className="bg-primary/20 p-3 rounded-full">
-                <Calendar className="w-8 h-8 text-primary" />
+          <div className="space-y-4 sm:space-y-6">
+            <div className="bg-card rounded-2xl p-4 sm:p-6 shadow-lg border border-border flex items-start space-x-3 sm:space-x-4 animate-slide-in">
+              <div className="bg-primary/20 p-2 sm:p-3 rounded-full flex-shrink-0">
+                <Calendar className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
               </div>
               <div>
-                <h3 className="font-bold text-lg text-foreground">DATA</h3>
-                <p className="text-xl text-muted-foreground">22 de Novembro de 2025</p>
+                <h3 className="font-bold text-base sm:text-lg text-foreground">DATA</h3>
+                <p className="text-lg sm:text-xl text-muted-foreground">22 de Novembro de 2025</p>
               </div>
             </div>
 
-            <div className="bg-card rounded-2xl p-6 shadow-lg border border-border flex items-start space-x-4 animate-slide-in" style={{ animationDelay: "0.1s" }}>
-              <div className="bg-secondary/30 p-3 rounded-full">
-                <Clock className="w-8 h-8 text-secondary-foreground" />
+            <div className="bg-card rounded-2xl p-4 sm:p-6 shadow-lg border border-border flex items-start space-x-3 sm:space-x-4 animate-slide-in" style={{ animationDelay: "0.1s" }}>
+              <div className="bg-secondary/30 p-2 sm:p-3 rounded-full flex-shrink-0">
+                <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-secondary-foreground" />
               </div>
               <div>
-                <h3 className="font-bold text-lg text-foreground">HORÁRIO</h3>
-                <p className="text-xl text-muted-foreground">A partir das 17:00</p>
+                <h3 className="font-bold text-base sm:text-lg text-foreground">HORÁRIO</h3>
+                <p className="text-lg sm:text-xl text-muted-foreground">A partir das 17:00</p>
               </div>
             </div>
 
-            <div className="bg-card rounded-2xl p-6 shadow-lg border border-border animate-slide-in" style={{ animationDelay: "0.2s" }}>
-              <div className="flex items-start space-x-4 mb-4">
-                <div className="bg-accent/30 p-3 rounded-full">
-                  <MapPin className="w-8 h-8 text-accent-foreground" />
+            <div className="bg-card rounded-2xl p-4 sm:p-6 shadow-lg border border-border animate-slide-in" style={{ animationDelay: "0.2s" }}>
+              <div className="flex items-start space-x-3 sm:space-x-4 mb-4">
+                <div className="bg-accent/30 p-2 sm:p-3 rounded-full flex-shrink-0">
+                  <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-accent-foreground" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg text-foreground">LOCAL</h3>
-                  <p className="text-xl text-muted-foreground">Chácara Sá Menezes</p>
+                  <h3 className="font-bold text-base sm:text-lg text-foreground">LOCAL</h3>
+                  <p className="text-lg sm:text-xl text-muted-foreground">Chácara Sá Menezes</p>
                 </div>
               </div>
               <Button 
                 onClick={openMap}
-                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold py-6 text-lg"
+                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold py-4 sm:py-6 text-base sm:text-lg"
               >
-                <MapPin className="w-5 h-5 mr-2" />
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Ver no Mapa
               </Button>
             </div>
@@ -248,7 +270,7 @@ const Index = () => {
       </section>
 
       {/* Section 4: Gift Suggestions */}
-      <section className="relative py-16 px-6 bg-card overflow-hidden">
+      <section className="relative py-12 sm:py-16 px-4 sm:px-6 bg-card overflow-hidden">
         <img 
           src={pipa} 
           alt="" 
@@ -260,16 +282,16 @@ const Index = () => {
           className="absolute bottom-10 left-4 w-20 opacity-40 animate-bounce-gentle"
         />
         
-        <div className="max-w-2xl mx-auto space-y-8 relative z-10">
-          <h2 className="text-4xl font-bold text-center text-foreground">
+        <div className="max-w-2xl mx-auto space-y-6 sm:space-y-8 relative z-10">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center text-foreground px-4">
             Um Mimo para o Bernardo
           </h2>
           
-          <p className="text-center text-lg text-muted-foreground italic">
+          <p className="text-center text-base sm:text-lg text-muted-foreground italic px-4">
             Sua presença é nosso maior presente! Mas, se quiserem mimar nosso pequeno, aqui estão algumas ideias:
           </p>
           
-          <div className="bg-background rounded-2xl p-8 shadow-lg border border-border space-y-4">
+          <div className="bg-background rounded-2xl p-6 sm:p-8 shadow-lg border border-border space-y-4 mx-4">
             <div className="flex items-center space-x-3">
               <span className="text-3xl">👕</span>
               <div>
@@ -304,18 +326,18 @@ const Index = () => {
       </section>
 
       {/* Section 5: RSVP Form */}
-      <section className="relative py-16 px-6 bg-background">
-        <div className="max-w-2xl mx-auto space-y-8">
-          <div className="text-center space-y-4">
-            <h2 className="text-4xl font-bold text-foreground">
+      <section className="relative py-12 sm:py-16 px-4 sm:px-6 bg-background">
+        <div className="max-w-2xl mx-auto space-y-6 sm:space-y-8">
+          <div className="text-center space-y-3 sm:space-y-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
               Vamos Celebrar Juntos?
             </h2>
-            <p className="text-xl font-bold text-primary">
+            <p className="text-lg sm:text-xl font-bold text-primary px-4">
               Por favor, confirme sua presença até o dia 09 de Novembro.
             </p>
           </div>
           
-          <form onSubmit={handleSubmit} className="bg-card rounded-2xl p-8 shadow-xl border border-border space-y-6">
+          <form onSubmit={handleSubmit} className="bg-card rounded-2xl p-6 sm:p-8 shadow-xl border border-border space-y-6">
             <div className="space-y-2">
               <Label htmlFor="name" className="text-base font-semibold">
                 Seu nome completo *
