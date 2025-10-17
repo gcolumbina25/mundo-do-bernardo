@@ -55,7 +55,7 @@ export const MusicDialog = () => {
   return (
     <>
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="sm:max-w-md bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 border-2 border-primary/20">
+        <DialogContent className="max-w-[90vw] sm:max-w-md bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 border-2 border-primary/20">
           <DialogHeader>
             <DialogTitle className="flex items-center justify-center gap-2 text-2xl">
               <Music className="w-8 h-8 text-primary animate-bounce-gentle" />
