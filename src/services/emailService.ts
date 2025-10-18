@@ -5,9 +5,9 @@
 // 3. Criar um template de e-mail
 // 4. Substituir as constantes abaixo com seus dados
 
-const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+const EMAILJS_SERVICE_ID = 'service_gd40wxn';
+const EMAILJS_TEMPLATE_ID = 'template_9210n2p';
+const EMAILJS_PUBLIC_KEY = 'Fn8VipqWffJloXBkf';
 
 export interface RSVPData {
   name: string;
@@ -18,6 +18,23 @@ export interface RSVPData {
 
 export const sendRSVPEmail = async (data: RSVPData): Promise<{ success: boolean; error?: string }> => {
   try {
+    // Verificar se EmailJS está configurado
+    if (EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID' || 
+        EMAILJS_TEMPLATE_ID === 'YOUR_TEMPLATE_ID' || 
+        EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+      
+      // Modo de desenvolvimento - apenas simular sucesso
+      console.log('EmailJS não configurado. Simulando envio:', {
+        name: data.name,
+        attending: data.attending,
+        adults: data.adults,
+        children: data.children,
+        total: data.adults + data.children
+      });
+      
+      return { success: true };
+    }
+
     // Importação dinâmica do EmailJS
     const emailjs = await import('@emailjs/browser');
     
