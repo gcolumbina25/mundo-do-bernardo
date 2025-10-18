@@ -80,27 +80,6 @@ Subject: Nova Confirmação de Presença - {{from_name}}
       </div>
     </div>
 
-    <!-- Card de Evento -->
-    <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-left: 4px solid #ff6b6b; margin: 20px 0;">
-      
-      <h2 style="color: #ff6b6b; margin: 0 0 20px 0; font-size: 20px;">📅 Detalhes do Evento</h2>
-      
-      <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <span style="background: #ff6b6b; color: white; padding: 8px 12px; border-radius: 20px; font-weight: bold; margin-right: 15px; min-width: 80px; text-align: center;">Evento</span>
-        <span style="font-size: 16px; color: #333;">{{event_name}}</span>
-      </div>
-
-      <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <span style="background: #ff6b6b; color: white; padding: 8px 12px; border-radius: 20px; font-weight: bold; margin-right: 15px; min-width: 80px; text-align: center;">Data</span>
-        <span style="font-size: 16px; color: #333;">{{event_date}}</span>
-      </div>
-
-      <div style="display: flex; align-items: center;">
-        <span style="background: #ff6b6b; color: white; padding: 8px 12px; border-radius: 20px; font-weight: bold; margin-right: 15px; min-width: 80px; text-align: center;">Enviado</span>
-        <span style="font-size: 16px; color: #333;">{{sent_date}}</span>
-      </div>
-    </div>
-
     <!-- Mensagem Final -->
     <div style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 12px;">
       <p style="font-size: 16px; color: #666; margin: 0;">
@@ -127,9 +106,6 @@ Subject: Nova Confirmação de Presença - {{from_name}}
 - `{{adults}}` - Número de adultos (acima de 8 anos)
 - `{{children}}` - Número de crianças (até 7 anos)
 - `{{total_guests}}` - Total de pessoas (adultos + crianças)
-- `{{event_name}}` - "Festa do Bernardo"
-- `{{event_date}}` - "22 de Novembro de 2025"
-- `{{sent_date}}` - Data/hora do envio
 
 ### 4. Obter Chave Pública
 1. Vá para "Account" → "General"
@@ -157,7 +133,7 @@ const EMAILJS_PUBLIC_KEY = 'SUA_PUBLIC_KEY_AQUI';
    - Quantidade separada de adultos e crianças
    - Total de pessoas
 
-**📧 Exemplo de E-mail Recebido (Novo Design):**
+**📧 Exemplo de E-mail Recebido (Design Simplificado):**
 ```
 Subject: Nova Confirmação de Presença - João Silva
 
@@ -173,11 +149,6 @@ Olá! Você recebeu uma nova confirmação de presença para a festa do Bernardo
 👥 Quantidade de Pessoas
 [2] Adultos    [1] Crianças
 Total: 3 pessoas
-
-📅 Detalhes do Evento
-[Evento] Festa do Bernardo
-[Data] 22 de Novembro de 2025
-[Enviado] 15/11/2025 14:30
 
 🎉 Obrigado por confirmar sua presença! Será uma festa incrível! 🎂
 
