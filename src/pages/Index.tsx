@@ -16,12 +16,14 @@ import bola from "@/assets/bola.png";
 import girassol from "@/assets/girassol.png";
 import plantinhas from "@/assets/plantinhas.png";
 import pipa from "@/assets/pipa.png";
+import { GuestCounter } from "@/components/GuestCounter";
 
 const Index = () => {
   const [formData, setFormData] = useState({
     name: "",
     attending: "",
-    guests: "1",
+    adults: 1,
+    children: 0,
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -40,7 +42,8 @@ const Index = () => {
       const result = await sendRSVPEmail({
         name: formData.name,
         attending: formData.attending,
-        guests: parseInt(formData.guests),
+        adults: formData.adults,
+        children: formData.children,
       });
 
       if (!result.success) {
@@ -397,17 +400,12 @@ const Index = () => {
             </div>
 
             {formData.attending === "yes" && (
-              <div className="space-y-2 animate-fade-in">
-                <Label htmlFor="guests" className="text-base font-semibold">
-                  Quantas pessoas (incluindo você)?
-                </Label>
-                <Input
-                  id="guests"
-                  type="number"
-                  min="1"
-                  value={formData.guests}
-                  onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
-                  className="h-12 text-base"
+              <div className="animate-fade-in">
+                <GuestCounter
+                  adults={formData.adults}
+                  children={formData.children}
+                  onAdultsChange={(count) => setFormData({ ...formData, adults: count })}
+                  onChildrenChange={(count) => setFormData({ ...formData, children: count })}
                 />
               </div>
             )}

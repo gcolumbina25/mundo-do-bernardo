@@ -11,7 +11,8 @@ const corsHeaders = {
 interface RSVPRequest {
   name: string;
   attending: string;
-  guests: number;
+  adults: number;
+  children: number;
 }
 
 const handler = async (req: Request): Promise<Response> => {
@@ -20,9 +21,9 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const { name, attending, guests }: RSVPRequest = await req.json();
+    const { name, attending, adults, children }: RSVPRequest = await req.json();
 
-    console.log("Processing RSVP:", { name, attending, guests });
+    console.log("Processing RSVP:", { name, attending, adults, children });
 
     const emailResponse = await resend.emails.send({
       from: "Festa do Bernardo <onboarding@resend.dev>",
@@ -38,7 +39,9 @@ const handler = async (req: Request): Promise<Response> => {
           <div style="background-color: #f9f9f9; padding: 20px; border-radius: 10px; margin-top: 20px;">
             <p><strong>Nome:</strong> ${name}</p>
             <p><strong>Vai comparecer:</strong> ${attending === "yes" ? "Sim, com certeza!" : "Infelizmente, não poderei."}</p>
-            <p><strong>Número de pessoas:</strong> ${guests}</p>
+            <p><strong>Adultos:</strong> ${adults}</p>
+            <p><strong>Crianças:</strong> ${children}</p>
+            <p><strong>Total de pessoas:</strong> ${adults + children}</p>
           </div>
           <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;">
           <p style="text-align: center; color: #666; font-size: 12px;">

@@ -12,7 +12,8 @@ const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
 export interface RSVPData {
   name: string;
   attending: string;
-  guests: number;
+  adults: number;
+  children: number;
 }
 
 export const sendRSVPEmail = async (data: RSVPData): Promise<{ success: boolean; error?: string }> => {
@@ -24,7 +25,9 @@ export const sendRSVPEmail = async (data: RSVPData): Promise<{ success: boolean;
       to_email: 'columbinagustavo@gmail.com',
       from_name: data.name,
       attending: data.attending === 'yes' ? 'Sim, com certeza!' : 'Infelizmente, não poderei.',
-      guests: data.guests.toString(),
+      adults: data.adults.toString(),
+      children: data.children.toString(),
+      total_guests: (data.adults + data.children).toString(),
       event_date: '22 de Novembro de 2025',
       event_name: 'Festa do Bernardo'
     };
@@ -66,7 +69,9 @@ export const sendRSVPWebhook = async (data: RSVPData): Promise<{ success: boolea
       body: JSON.stringify({
         name: data.name,
         attending: data.attending,
-        guests: data.guests,
+        adults: data.adults,
+        children: data.children,
+        total_guests: data.adults + data.children,
         timestamp: new Date().toISOString(),
         event: 'Festa do Bernardo - 22 de Novembro de 2025'
       }),
