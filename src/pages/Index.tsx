@@ -18,6 +18,73 @@ import plantinhas from "@/assets/plantinhas.png";
 import pipa from "@/assets/pipa.png";
 import { GuestCounter } from "@/components/GuestCounter";
 
+// Dados dos presentes virtuais
+  const virtualGifts = [
+    {
+      id: 1,
+      name: "Mini Livros",
+      price: 35.50,
+      link: "https://www.asaas.com/c/5xm0m0qn0sl292q9",
+      image: "https://i.ibb.co/x8PVgSWM/gift-1.jpg"
+    },
+    {
+      id: 2,
+      name: "Pronúncia Portátil",
+      price: 45.50,
+      link: "https://www.asaas.com/c/vcriz4xxas30f2qh",
+      image: "https://i.ibb.co/Z1bQzVJK/gift-2.jpg"
+    },
+    {
+      id: 3,
+      name: "Conjunto Básico",
+      price: 54.98,
+      link: "https://www.asaas.com/c/5vf4ja2ui5wcbwso",
+      image: "https://i.ibb.co/XkFNtVWy/gift-3.jpg"
+    },
+    {
+      id: 4,
+      name: "Conjunto Teen",
+      price: 65.48,
+      link: "https://www.asaas.com/c/v1d4id5zfobliuf3",
+      image: "https://i.ibb.co/CS8mKLg/gift-4.jpg"
+    },
+    {
+      id: 5,
+      name: "Tênis Boy",
+      price: 75.28,
+      link: "https://www.asaas.com/c/kkoc8d91pp01t834",
+      image: "https://i.ibb.co/qMSGzhm7/gift-5.jpg"
+    },
+    {
+      id: 6,
+      name: "Brinquedo Educativo",
+      price: 82.41,
+      link: "https://www.asaas.com/c/18oaac3fcmvp5s2o",
+      image: "https://i.ibb.co/JwbXD38G/gift-6.jpg"
+    },
+    {
+      id: 7,
+      name: "Colônia Infantil",
+      price: 98.99,
+      link: "https://www.asaas.com/c/r00ebs7dvgclirvg",
+      image: "https://i.ibb.co/DHw3g3z6/gift-7.jpg"
+    },
+    {
+      id: 8,
+      name: "Mesinha Educativa",
+      price: 120.00,
+      link: "https://www.asaas.com/c/rdannxbe0e9ll6wk",
+      image: "https://i.ibb.co/rWWh5vR/gift-8.jpg"
+    },
+    {
+      id: 9,
+      name: "Bicicleta Equilíbrio",
+      price: 219.88,
+      link: "https://www.asaas.com/c/k4omlgpjmpxow23b",
+      image: "https://i.ibb.co/x8ffqtcG/gift-9.jpg"
+    }
+  ];
+
 const Index = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -55,7 +122,7 @@ const Index = () => {
 
       toast({
         title: "🎉 Confirmação Enviada!",
-        description: "Obrigado por confirmar sua presença! Verifique seu e-mail.",
+        description: "Muito obrigado por prestigiar o aniversário do Bernardo! Será uma festa incrível!",
         duration: 5000,
         className: "bg-green-500 text-white border-green-600",
       });
@@ -283,7 +350,7 @@ const Index = () => {
                 <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-primary animate-pulse" />
                 <div className="text-center">
                   <p className="text-lg sm:text-xl font-bold text-foreground">
-                    Faltam <span className="text-primary">{Math.max(0, Math.ceil((new Date('2025-11-22').getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)))}</span> dias
+                    Faltam <span className="text-red-500">{Math.max(0, Math.ceil((new Date('2025-11-22').getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)))}</span> dias
                   </p>
                   <p className="text-sm sm:text-base text-muted-foreground">
                     para nos vermos!
@@ -317,7 +384,7 @@ const Index = () => {
         <div className="max-w-2xl mx-auto space-y-6 sm:space-y-8 relative z-10">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Caros convidados, chegue cedo! 🌅
+              Caros convidados, cheguem cedo! 🌅
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-sky-400 mx-auto rounded-full"></div>
           </div>
@@ -437,7 +504,139 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Section 5: RSVP Form */}
+      {/* Section 5: Virtual Gifts */}
+      <section className="relative py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-br from-green-50 to-emerald-50 overflow-hidden">
+        <img 
+          src={girassol} 
+          alt="" 
+          className="absolute top-8 right-8 w-20 sm:w-24 opacity-20 animate-float"
+        />
+        <img 
+          src={bola} 
+          alt="" 
+          className="absolute bottom-8 left-8 w-16 sm:w-20 opacity-25 animate-bounce-gentle"
+        />
+        
+        <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8 relative z-10">
+          <div className="text-center mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              🎁 Presentes Virtuais
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-green-400 to-emerald-400 mx-auto rounded-full mb-4"></div>
+            <p className="text-center text-base sm:text-lg text-muted-foreground italic px-4 mb-2">
+              Dê um presente virtual ao Bernardo e pague com PIX ou Cartão em poucos segundos sem sair de casa!
+            </p>
+            <p className="text-center text-sm text-gray-600 mb-2">
+              &nbsp;
+            </p>
+            <p className="text-center text-sm text-gray-500 animate-pulse">
+              👆 Role para ver todas as opções.
+            </p>
+          </div>
+
+          {/* Carrossel de Produtos */}
+          <div className="relative py-2 px-4">
+            {/* Botões de Navegação */}
+            <button 
+              onClick={() => {
+                const container = document.getElementById('gifts-carousel');
+                if (container) {
+                  container.scrollBy({ left: -300, behavior: 'smooth' });
+                }
+              }}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all duration-200 hover:scale-110 hidden sm:block"
+            >
+              <ChevronDown className="w-6 h-6 text-gray-600 rotate-90" />
+            </button>
+            
+            <button 
+              onClick={() => {
+                const container = document.getElementById('gifts-carousel');
+                if (container) {
+                  container.scrollBy({ left: 300, behavior: 'smooth' });
+                }
+              }}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all duration-200 hover:scale-110 hidden sm:block"
+            >
+              <ChevronDown className="w-6 h-6 text-gray-600 -rotate-90" />
+            </button>
+
+            <div id="gifts-carousel" className="overflow-x-auto scrollbar-hide overflow-y-visible">
+              <div className="flex space-x-4 sm:space-x-6 py-4" style={{ width: 'max-content' }}>
+                {virtualGifts.map((gift) => (
+                  <div 
+                    key={gift.id}
+                    className="flex-shrink-0 w-64 sm:w-72 bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105"
+                  >
+                    {/* Imagem do Produto */}
+                    <div className="h-40 sm:h-48 bg-gray-100 overflow-hidden">
+                      <img 
+                        src={gift.image} 
+                        alt={gift.name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          console.log('Erro ao carregar imagem:', gift.image);
+                          e.currentTarget.style.display = 'none';
+                          const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                          if (fallback) fallback.style.display = 'flex';
+                        }}
+                        onLoad={() => {
+                          console.log('Imagem carregada com sucesso:', gift.image);
+                        }}
+                      />
+                      <div className="w-full h-full bg-gradient-to-br from-green-100 to-blue-100 flex items-center justify-center" style={{ display: 'none' }}>
+                        <div className="text-center">
+                          <div className="text-4xl mb-2">🎁</div>
+                          <p className="text-sm text-gray-600">Imagem não encontrada</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Informações do Produto */}
+                    <div className="p-4 sm:p-6">
+                      <h3 className="font-bold text-lg text-gray-800 mb-2 line-clamp-2">
+                        {gift.name}
+                      </h3>
+                      
+                      <div className="mb-4">
+                        <span className="text-2xl font-bold text-green-500">
+                          R$ {gift.price.toFixed(2).replace('.', ',')}
+                        </span>
+                      </div>
+                      
+                      <Button 
+                        onClick={() => window.open(gift.link, '_blank')}
+                        className="w-full bg-gradient-to-r from-green-300 to-blue-300 hover:from-green-400 hover:to-blue-400 text-gray-700 font-bold py-3 rounded-lg transition-all duration-200 hover:shadow-lg"
+                      >
+                        🎁 Presentear
+                      </Button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Indicadores de Scroll */}
+            <div className="flex justify-center mt-6 space-x-2">
+              <div className="w-2 h-2 bg-green-300 rounded-full"></div>
+              <div className="w-2 h-2 bg-green-300 rounded-full"></div>
+              <div className="w-2 h-2 bg-green-300 rounded-full"></div>
+              <div className="w-2 h-2 bg-green-300 rounded-full"></div>
+              <div className="w-2 h-2 bg-green-300 rounded-full"></div>
+            </div>
+          </div>
+
+          {/* Informação sobre Redirecionamento */}
+          <div className="text-center -mt-8">
+            <p className="text-sm text-gray-500">
+              Ao clicar em "Presentear", você será redirecionado para a plataforma de pagamento do Asaas.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Section 6: RSVP Form */}
       <section className="relative py-12 sm:py-16 px-4 sm:px-6 bg-background">
         <div className="max-w-2xl mx-auto space-y-6 sm:space-y-8">
           <div className="text-center space-y-3 sm:space-y-4">
