@@ -25,6 +25,7 @@ const Index = () => {
     adults: 1,
     children: 0,
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,6 +38,8 @@ const Index = () => {
       });
       return;
     }
+
+    setIsSubmitting(true);
 
     try {
       const result = await sendRSVPEmail({
@@ -51,18 +54,23 @@ const Index = () => {
       }
 
       toast({
-        title: "Confirmação Enviada! 🎉",
-        description: "Obrigado por confirmar sua presença!",
+        title: "🎉 Confirmação Enviada!",
+        description: "Obrigado por confirmar sua presença! Verifique seu e-mail.",
+        duration: 5000,
+        className: "bg-green-500 text-white border-green-600",
       });
       
-      setFormData({ name: "", attending: "", guests: "1" });
+      setFormData({ name: "", attending: "", adults: 1, children: 0 });
     } catch (error) {
       console.error("Error sending RSVP:", error);
       toast({
-        title: "Erro ao enviar",
-        description: "Ocorreu um erro. Tente novamente.",
+        title: "❌ Erro ao enviar",
+        description: "Ocorreu um erro. Tente novamente em alguns instantes.",
         variant: "destructive",
+        duration: 5000,
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -497,9 +505,17 @@ const Index = () => {
 
             <Button 
               type="submit"
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-6 text-lg shadow-lg"
+              disabled={isSubmitting}
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-6 text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
             >
-              Enviar Confirmação
+              {isSubmitting ? (
+                <>
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                  Enviando...
+                </>
+              ) : (
+                "Enviar Confirmação"
+              )}
             </Button>
           </form>
         </div>

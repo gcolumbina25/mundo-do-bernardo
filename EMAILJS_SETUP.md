@@ -80,13 +80,6 @@ Subject: Nova Confirmação de Presença - {{from_name}}
       </div>
     </div>
 
-    <!-- Mensagem Final -->
-    <div style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 12px;">
-      <p style="font-size: 16px; color: #666; margin: 0;">
-        🎉 Obrigado por confirmar sua presença! Será uma festa incrível! 🎂
-      </p>
-    </div>
-
   </div>
 
   <!-- Rodapé -->
@@ -133,7 +126,7 @@ const EMAILJS_PUBLIC_KEY = 'SUA_PUBLIC_KEY_AQUI';
    - Quantidade separada de adultos e crianças
    - Total de pessoas
 
-**📧 Exemplo de E-mail Recebido (Design Simplificado):**
+**📧 Exemplo de E-mail Recebido (Design Final):**
 ```
 Subject: Nova Confirmação de Presença - João Silva
 
@@ -149,8 +142,6 @@ Olá! Você recebeu uma nova confirmação de presença para a festa do Bernardo
 👥 Quantidade de Pessoas
 [2] Adultos    [1] Crianças
 Total: 3 pessoas
-
-🎉 Obrigado por confirmar sua presença! Será uma festa incrível! 🎂
 
 Desenvolvido com ❤️ para a festa do Bernardo
 Email enviado via EmailJS
