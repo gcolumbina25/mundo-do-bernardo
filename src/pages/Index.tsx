@@ -289,7 +289,7 @@ const Index = () => {
       </section>
 
       {/* Section 4: Important Schedule Information */}
-      <section className="relative py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-br from-yellow-50 to-orange-50 overflow-hidden">
+      <section className="relative py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-br from-blue-50 to-sky-50 overflow-hidden">
         <img 
           src={sol} 
           alt="" 
@@ -311,14 +311,14 @@ const Index = () => {
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
               Caros convidados, chegue cedo! 🌅
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-400 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-sky-400 mx-auto rounded-full"></div>
           </div>
           
           <div className="space-y-6 sm:space-y-8">
             {/* Fotos com convidados */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-xl border-2 border-yellow-200 animate-slide-in">
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-xl border-2 border-blue-200 animate-slide-in">
               <div className="flex items-start space-x-4 sm:space-x-6">
-                <div className="bg-gradient-to-br from-yellow-400 to-orange-400 p-3 sm:p-4 rounded-full flex-shrink-0 shadow-lg">
+                <div className="bg-gradient-to-br from-blue-400 to-sky-400 p-3 sm:p-4 rounded-full flex-shrink-0 shadow-lg">
                   <Camera className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                 </div>
                 <div className="flex-1">
@@ -336,9 +336,9 @@ const Index = () => {
             </div>
 
             {/* Parabéns */}
-            <div className="bg-gradient-to-r from-pink-100 to-purple-100 rounded-2xl p-6 sm:p-8 shadow-xl border-2 border-pink-200 animate-slide-in" style={{ animationDelay: "0.2s" }}>
+            <div className="bg-gradient-to-r from-blue-100 to-indigo-100 rounded-2xl p-6 sm:p-8 shadow-xl border-2 border-blue-200 animate-slide-in" style={{ animationDelay: "0.2s" }}>
               <div className="flex items-start space-x-4 sm:space-x-6">
-                <div className="bg-gradient-to-br from-pink-400 to-purple-400 p-3 sm:p-4 rounded-full flex-shrink-0 shadow-lg">
+                <div className="bg-gradient-to-br from-blue-500 to-indigo-500 p-3 sm:p-4 rounded-full flex-shrink-0 shadow-lg">
                   <Gift className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                 </div>
                 <div className="flex-1">

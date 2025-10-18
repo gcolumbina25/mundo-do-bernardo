@@ -2,6 +2,8 @@
 
 ## 📧 Como Configurar o EmailJS
 
+> **🆕 Atualização:** O formulário agora separa adultos e crianças para melhor organização da festa!
+
 ### 1. Criar Conta no EmailJS
 1. Acesse: https://www.emailjs.com/
 2. Clique em "Sign Up" e crie uma conta gratuita
@@ -33,7 +35,9 @@ Você recebeu uma nova confirmação de presença para a Festa do Bernardo.
 Detalhes:
 - Nome: {{from_name}}
 - Vai comparecer: {{attending}}
-- Número de pessoas: {{guests}}
+- Adultos: {{adults}}
+- Crianças: {{children}}
+- Total de pessoas: {{total_guests}}
 - Evento: {{event_name}}
 - Data: {{event_date}}
 
@@ -44,6 +48,16 @@ Festa do Bernardo - 22 de Novembro de 2025
 ```
 
 4. **Anote o Template ID** (ex: `template_xyz789`)
+
+**📋 Campos Disponíveis no Template:**
+- `{{from_name}}` - Nome do convidado
+- `{{attending}}` - "Sim, com certeza!" ou "Infelizmente, não poderei."
+- `{{adults}}` - Número de adultos (acima de 8 anos)
+- `{{children}}` - Número de crianças (até 7 anos)
+- `{{total_guests}}` - Total de pessoas (adultos + crianças)
+- `{{event_name}}` - "Festa do Bernardo"
+- `{{event_date}}` - "22 de Novembro de 2025"
+- `{{sent_date}}` - Data/hora do envio
 
 ### 4. Obter Chave Pública
 1. Vá para "Account" → "General"
@@ -61,8 +75,35 @@ const EMAILJS_PUBLIC_KEY = 'SUA_PUBLIC_KEY_AQUI';
 
 ### 6. Testar
 1. Salve o arquivo
-2. Teste o formulário no site
-3. Verifique se o e-mail chegou em `columbinagustavo@gmail.com`
+2. Teste o formulário no site:
+   - Preencha o nome
+   - Selecione "Sim, com certeza!"
+   - Ajuste os contadores de adultos e crianças
+   - Envie o formulário
+3. Verifique se o e-mail chegou em `columbinagustavo@gmail.com` com:
+   - Nome do convidado
+   - Quantidade separada de adultos e crianças
+   - Total de pessoas
+
+**📧 Exemplo de E-mail Recebido:**
+```
+Subject: Nova Confirmação de Presença - João Silva
+
+Olá!
+
+Você recebeu uma nova confirmação de presença para a Festa do Bernardo.
+
+Detalhes:
+- Nome: João Silva
+- Vai comparecer: Sim, com certeza!
+- Adultos: 2
+- Crianças: 1
+- Total de pessoas: 3
+- Evento: Festa do Bernardo
+- Data: 22 de Novembro de 2025
+
+Enviado em: 15/11/2025 14:30
+```
 
 ## 🔧 Alternativas
 
