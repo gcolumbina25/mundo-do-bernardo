@@ -3,17 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-<<<<<<< HEAD
 import { ChevronDown, MapPin, Calendar, Clock, Gift, Heart } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { MusicDialog } from "@/components/MusicDialog";
 import { sendRSVPEmail } from "@/services/emailService";
-=======
-import { ChevronDown, MapPin, Calendar, Clock, Gift } from "lucide-react";
-import { toast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
-import { MusicDialog } from "@/components/MusicDialog";
->>>>>>> 8f9db1e65eb86c77989410c82d865eeebdeff284
 import mascote from "@/assets/mascote.png";
 import logotipo from "@/assets/logotipo.png";
 import nuvem from "@/assets/nuvem.png";
@@ -44,7 +37,6 @@ const Index = () => {
     }
 
     try {
-<<<<<<< HEAD
       const result = await sendRSVPEmail({
         name: formData.name,
         attending: formData.attending,
@@ -54,17 +46,6 @@ const Index = () => {
       if (!result.success) {
         throw new Error(result.error || "Erro ao enviar e-mail");
       }
-=======
-      const { error } = await supabase.functions.invoke("send-rsvp-email", {
-        body: {
-          name: formData.name,
-          attending: formData.attending,
-          guests: parseInt(formData.guests),
-        },
-      });
-
-      if (error) throw error;
->>>>>>> 8f9db1e65eb86c77989410c82d865eeebdeff284
 
       toast({
         title: "Confirmação Enviada! 🎉",
@@ -117,11 +98,7 @@ const Index = () => {
         <img 
           src={sol} 
           alt="" 
-<<<<<<< HEAD
           className="absolute top-10 left-4 w-24 animate-pulse"
-=======
-          className="absolute top-10 right-10 w-24 animate-pulse"
->>>>>>> 8f9db1e65eb86c77989410c82d865eeebdeff284
         />
         <img 
           src={pipa} 
@@ -202,13 +179,8 @@ const Index = () => {
         />
         
         <div className="max-w-2xl mx-auto mt-12 sm:mt-16 text-center space-y-4 sm:space-y-6 animate-fade-in relative z-10 px-4">
-<<<<<<< HEAD
           <div className="prose prose-sm sm:prose-base mx-auto">
             <p className="text-base sm:text-lg leading-relaxed text-foreground font-medium italic">
-=======
-          <div className="prose prose-base sm:prose-lg mx-auto">
-            <p className="text-lg sm:text-xl leading-relaxed text-foreground font-medium italic">
->>>>>>> 8f9db1e65eb86c77989410c82d865eeebdeff284
               Era uma vez um garotinho sorridente,<br />
               Que chegou trazendo amor de repente!<br />
               Com seus olhinhos brilhantes de alegria,<br />
@@ -293,7 +265,6 @@ const Index = () => {
                 Ver no Mapa
               </Button>
             </div>
-<<<<<<< HEAD
 
             {/* Countdown Timer */}
             <div className="bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl p-4 sm:p-6 shadow-lg border border-primary/30 animate-slide-in" style={{ animationDelay: "0.3s" }}>
@@ -310,8 +281,6 @@ const Index = () => {
                 <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-primary animate-pulse" style={{ animationDelay: "0.5s" }} />
               </div>
             </div>
-=======
->>>>>>> 8f9db1e65eb86c77989410c82d865eeebdeff284
           </div>
         </div>
       </section>
@@ -379,18 +348,12 @@ const Index = () => {
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
               Vamos Celebrar Juntos?
             </h2>
-<<<<<<< HEAD
             <div className="bg-primary/10 border-2 border-primary/30 rounded-xl p-4 mx-4">
-              <p className="text-base sm:text-lg font-bold text-primary text-center">
+              <p className="text-base sm:text-lg font-bold text-muted-foreground text-center">
                 ⏰ Por favor, confirme sua presença<br />
                 até o dia <span className="text-destructive font-extrabold">09 de Novembro</span>.
               </p>
             </div>
-=======
-            <p className="text-lg sm:text-xl font-bold text-primary px-4">
-              Por favor, confirme sua presença até o dia 09 de Novembro.
-            </p>
->>>>>>> 8f9db1e65eb86c77989410c82d865eeebdeff284
           </div>
           
           <form onSubmit={handleSubmit} className="bg-card rounded-2xl p-6 sm:p-8 shadow-xl border border-border space-y-6">
@@ -465,7 +428,6 @@ const Index = () => {
             alt="" 
             className="w-full h-auto opacity-70"
           />
-<<<<<<< HEAD
         </div>
 
         {/* Credits */}
@@ -482,15 +444,6 @@ const Index = () => {
             </a>
             .
           </p>
-=======
-          <div className="absolute inset-0 flex items-center justify-center">
-            <img 
-              src={girassol} 
-              alt="" 
-              className="w-16 h-auto animate-bounce-gentle"
-            />
-          </div>
->>>>>>> 8f9db1e65eb86c77989410c82d865eeebdeff284
         </div>
       </section>
     </div>
