@@ -18,23 +18,6 @@ export interface RSVPData {
 
 export const sendRSVPEmail = async (data: RSVPData): Promise<{ success: boolean; error?: string }> => {
   try {
-    // Verificar se EmailJS está configurado
-    if (EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID' || 
-        EMAILJS_TEMPLATE_ID === 'YOUR_TEMPLATE_ID' || 
-        EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
-      
-      // Modo de desenvolvimento - apenas simular sucesso
-      console.log('EmailJS não configurado. Simulando envio:', {
-        name: data.name,
-        attending: data.attending,
-        adults: data.adults,
-        children: data.children,
-        total: data.adults + data.children
-      });
-      
-      return { success: true };
-    }
-
     // Importação dinâmica do EmailJS
     const emailjs = await import('@emailjs/browser');
     
@@ -42,6 +25,7 @@ export const sendRSVPEmail = async (data: RSVPData): Promise<{ success: boolean;
       to_email: 'columbinagustavo@gmail.com',
       from_name: data.name,
       attending: data.attending === 'yes' ? 'Sim, com certeza!' : 'Infelizmente, não poderei.',
+      guests: (data.adults + data.children).toString(), // Campo temporário para compatibilidade
       adults: data.adults.toString(),
       children: data.children.toString(),
       total_guests: (data.adults + data.children).toString(),
