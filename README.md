@@ -25,12 +25,12 @@ Este é um site especial criado para a festa de aniversário do Bernardo, com de
 
 1. **Clone o repositório:**
    ```bash
-   git clone https://github.com/gcolumbina25/bernardos-big-bash.git
+   git clone https://github.com/gcolumbina25/mundo-do-bernardo.git
    ```
 
 2. **Navegue para o diretório:**
    ```bash
-   cd bernardos-big-bash
+   cd mundo-do-bernardo
    ```
 
 3. **Instale as dependências:**
