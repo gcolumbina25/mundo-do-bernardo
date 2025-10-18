@@ -28,23 +28,95 @@
 ```html
 Subject: Nova Confirmação de Presença - {{from_name}}
 
-Olá!
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f8f9fa;">
+  
+  <!-- Cabeçalho -->
+  <div style="text-align: center; background: linear-gradient(135deg, #4A90E2, #7B68EE); padding: 30px; border-radius: 15px 15px 0 0; color: white;">
+    <h1 style="margin: 0; font-size: 28px; font-weight: bold;">🎉 Nova Confirmação!</h1>
+    <p style="margin: 10px 0 0 0; font-size: 16px; opacity: 0.9;">Festa do Bernardo</p>
+  </div>
 
-Você recebeu uma nova confirmação de presença para a Festa do Bernardo.
+  <!-- Conteúdo Principal -->
+  <div style="background: white; padding: 30px; border-radius: 0 0 15px 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    
+    <p style="font-size: 18px; color: #333; margin-bottom: 25px;">
+      Olá! Você recebeu uma nova confirmação de presença para a festa do Bernardo. 🎂
+    </p>
 
-Detalhes:
-- Nome: {{from_name}}
-- Vai comparecer: {{attending}}
-- Adultos: {{adults}}
-- Crianças: {{children}}
-- Total de pessoas: {{total_guests}}
-- Evento: {{event_name}}
-- Data: {{event_date}}
+    <!-- Card de Informações -->
+    <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-left: 4px solid #4A90E2; margin: 20px 0;">
+      
+      <h2 style="color: #4A90E2; margin: 0 0 20px 0; font-size: 20px;">👤 Informações do Convidado</h2>
+      
+      <div style="display: flex; align-items: center; margin-bottom: 15px;">
+        <span style="background: #4A90E2; color: white; padding: 8px 12px; border-radius: 20px; font-weight: bold; margin-right: 15px; min-width: 80px; text-align: center;">Nome</span>
+        <span style="font-size: 16px; color: #333;">{{from_name}}</span>
+      </div>
 
-Enviado em: {{sent_date}}
+      <div style="display: flex; align-items: center; margin-bottom: 15px;">
+        <span style="background: #28a745; color: white; padding: 8px 12px; border-radius: 20px; font-weight: bold; margin-right: 15px; min-width: 80px; text-align: center;">Status</span>
+        <span style="font-size: 16px; color: #333;">{{attending}}</span>
+      </div>
+    </div>
 
----
-Festa do Bernardo - 22 de Novembro de 2025
+    <!-- Card de Quantidade -->
+    <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-left: 4px solid #28a745; margin: 20px 0;">
+      
+      <h2 style="color: #28a745; margin: 0 0 20px 0; font-size: 20px;">👥 Quantidade de Pessoas</h2>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+        <div style="text-align: center; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+          <div style="font-size: 24px; font-weight: bold; color: #4A90E2;">{{adults}}</div>
+          <div style="font-size: 14px; color: #666; margin-top: 5px;">Adultos</div>
+        </div>
+        <div style="text-align: center; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+          <div style="font-size: 24px; font-weight: bold; color: #ff6b6b;">{{children}}</div>
+          <div style="font-size: 14px; color: #666; margin-top: 5px;">Crianças</div>
+        </div>
+      </div>
+
+      <div style="text-align: center; background: linear-gradient(135deg, #4A90E2, #7B68EE); color: white; padding: 15px; border-radius: 8px; margin-top: 15px;">
+        <div style="font-size: 20px; font-weight: bold;">Total: {{total_guests}} pessoas</div>
+      </div>
+    </div>
+
+    <!-- Card de Evento -->
+    <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-left: 4px solid #ff6b6b; margin: 20px 0;">
+      
+      <h2 style="color: #ff6b6b; margin: 0 0 20px 0; font-size: 20px;">📅 Detalhes do Evento</h2>
+      
+      <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="background: #ff6b6b; color: white; padding: 8px 12px; border-radius: 20px; font-weight: bold; margin-right: 15px; min-width: 80px; text-align: center;">Evento</span>
+        <span style="font-size: 16px; color: #333;">{{event_name}}</span>
+      </div>
+
+      <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="background: #ff6b6b; color: white; padding: 8px 12px; border-radius: 20px; font-weight: bold; margin-right: 15px; min-width: 80px; text-align: center;">Data</span>
+        <span style="font-size: 16px; color: #333;">{{event_date}}</span>
+      </div>
+
+      <div style="display: flex; align-items: center;">
+        <span style="background: #ff6b6b; color: white; padding: 8px 12px; border-radius: 20px; font-weight: bold; margin-right: 15px; min-width: 80px; text-align: center;">Enviado</span>
+        <span style="font-size: 16px; color: #333;">{{sent_date}}</span>
+      </div>
+    </div>
+
+    <!-- Mensagem Final -->
+    <div style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 12px;">
+      <p style="font-size: 16px; color: #666; margin: 0;">
+        🎉 Obrigado por confirmar sua presença! Será uma festa incrível! 🎂
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <div style="text-align: center; margin-top: 20px; padding: 15px; color: #666; font-size: 12px;">
+    <p style="margin: 0;">Desenvolvido com ❤️ para a festa do Bernardo</p>
+    <p style="margin: 5px 0 0 0;">Email enviado via EmailJS</p>
+  </div>
+
+</div>
 ```
 
 4. **Anote o Template ID** (ex: `template_xyz789`)
@@ -85,24 +157,32 @@ const EMAILJS_PUBLIC_KEY = 'SUA_PUBLIC_KEY_AQUI';
    - Quantidade separada de adultos e crianças
    - Total de pessoas
 
-**📧 Exemplo de E-mail Recebido:**
+**📧 Exemplo de E-mail Recebido (Novo Design):**
 ```
 Subject: Nova Confirmação de Presença - João Silva
 
-Olá!
+🎉 Nova Confirmação!
+Festa do Bernardo
 
-Você recebeu uma nova confirmação de presença para a Festa do Bernardo.
+Olá! Você recebeu uma nova confirmação de presença para a festa do Bernardo. 🎂
 
-Detalhes:
-- Nome: João Silva
-- Vai comparecer: Sim, com certeza!
-- Adultos: 2
-- Crianças: 1
-- Total de pessoas: 3
-- Evento: Festa do Bernardo
-- Data: 22 de Novembro de 2025
+👤 Informações do Convidado
+[Nome] João Silva
+[Status] Sim, com certeza!
 
-Enviado em: 15/11/2025 14:30
+👥 Quantidade de Pessoas
+[2] Adultos    [1] Crianças
+Total: 3 pessoas
+
+📅 Detalhes do Evento
+[Evento] Festa do Bernardo
+[Data] 22 de Novembro de 2025
+[Enviado] 15/11/2025 14:30
+
+🎉 Obrigado por confirmar sua presença! Será uma festa incrível! 🎂
+
+Desenvolvido com ❤️ para a festa do Bernardo
+Email enviado via EmailJS
 ```
 
 ## 🔧 Alternativas
