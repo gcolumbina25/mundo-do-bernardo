@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { ChevronDown, MapPin, Calendar, Clock, Gift, Heart } from "lucide-react";
+import { ChevronDown, MapPin, Calendar, Clock, Gift, Heart, Camera } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { MusicDialog } from "@/components/MusicDialog";
 import { sendRSVPEmail } from "@/services/emailService";
@@ -288,7 +288,92 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Section 4: Gift Suggestions */}
+      {/* Section 4: Important Schedule Information */}
+      <section className="relative py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-br from-yellow-50 to-orange-50 overflow-hidden">
+        <img 
+          src={sol} 
+          alt="" 
+          className="absolute top-4 right-4 w-16 sm:w-20 opacity-30 animate-spin-slow"
+        />
+        <img 
+          src={pipa} 
+          alt="" 
+          className="absolute bottom-8 left-4 w-12 sm:w-16 opacity-25 animate-float"
+        />
+        <img 
+          src={girassol} 
+          alt="" 
+          className="absolute top-1/2 left-8 w-20 sm:w-24 opacity-20 animate-bounce-gentle"
+        />
+        
+        <div className="max-w-2xl mx-auto space-y-6 sm:space-y-8 relative z-10">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              Caros convidados, chegue cedo! 🌅
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-400 mx-auto rounded-full"></div>
+          </div>
+          
+          <div className="space-y-6 sm:space-y-8">
+            {/* Fotos com convidados */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-xl border-2 border-yellow-200 animate-slide-in">
+              <div className="flex items-start space-x-4 sm:space-x-6">
+                <div className="bg-gradient-to-br from-yellow-400 to-orange-400 p-3 sm:p-4 rounded-full flex-shrink-0 shadow-lg">
+                  <Camera className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-bold text-lg sm:text-xl text-gray-800 mb-2">
+                    📸 Fotos com os Convidados
+                  </h3>
+                  <p className="text-base sm:text-lg text-gray-700 font-semibold">
+                    Das 17h às 18h30
+                  </p>
+                  <p className="text-sm sm:text-base text-gray-600 mt-2">
+                    Não perca o momento especial de registrar a festa!
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Parabéns */}
+            <div className="bg-gradient-to-r from-pink-100 to-purple-100 rounded-2xl p-6 sm:p-8 shadow-xl border-2 border-pink-200 animate-slide-in" style={{ animationDelay: "0.2s" }}>
+              <div className="flex items-start space-x-4 sm:space-x-6">
+                <div className="bg-gradient-to-br from-pink-400 to-purple-400 p-3 sm:p-4 rounded-full flex-shrink-0 shadow-lg">
+                  <Gift className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-bold text-lg sm:text-xl text-gray-800 mb-2">
+                    🎂 Os Parabéns
+                  </h3>
+                  <p className="text-base sm:text-lg text-gray-700 font-semibold">
+                    Impreterivelmente às 19h00
+                  </p>
+                  <p className="text-sm sm:text-base text-gray-600 mt-2">
+                    Bernardo é um bebê e tem sua rotina de soninho! 😴
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Agradecimento */}
+            <div className="bg-gradient-to-r from-green-100 to-blue-100 rounded-2xl p-6 sm:p-8 shadow-xl border-2 border-green-200 animate-slide-in" style={{ animationDelay: "0.4s" }}>
+              <div className="text-center">
+                <div className="bg-gradient-to-br from-green-400 to-blue-400 p-3 sm:p-4 rounded-full w-fit mx-auto mb-4 shadow-lg">
+                  <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                </div>
+                <h3 className="font-bold text-lg sm:text-xl text-gray-800 mb-2">
+                  Agradecemos a sua compreensão! 🙏
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600">
+                  Sua presença é muito especial para nós!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5: Gift Suggestions */}
       <section className="relative py-12 sm:py-16 px-4 sm:px-6 bg-card overflow-hidden">
         <img 
           src={pipa} 
