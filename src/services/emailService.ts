@@ -5,7 +5,7 @@
 // 3. Criar um template de e-mail
 // 4. Substituir as constantes abaixo com seus dados
 
-const EMAILJS_SERVICE_ID = 'service_gd40wxn';
+const EMAILJS_SERVICE_ID = 'service_om2w73t';
 const EMAILJS_TEMPLATE_ID = 'template_9210n2p';
 const EMAILJS_PUBLIC_KEY = 'Fn8VipqWffJloXBkf';
 
@@ -25,7 +25,6 @@ export const sendRSVPEmail = async (data: RSVPData): Promise<{ success: boolean;
       to_email: 'columbinagustavo@gmail.com',
       from_name: data.name,
       attending: data.attending === 'yes' ? 'Sim, com certeza!' : 'Infelizmente, não poderei.',
-      guests: (data.adults + data.children).toString(), // Campo temporário para compatibilidade
       adults: data.adults.toString(),
       children: data.children.toString(),
       total_guests: (data.adults + data.children).toString(),
