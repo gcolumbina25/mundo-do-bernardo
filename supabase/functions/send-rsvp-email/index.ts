@@ -26,7 +26,11 @@ const handler = async (req: Request): Promise<Response> => {
 
     const emailResponse = await resend.emails.send({
       from: "Festa do Bernardo <onboarding@resend.dev>",
+<<<<<<< HEAD
       to: ["columbinagustavo@gmail.com"],
+=======
+      to: ["ari17arthur@gmail.com"],
+>>>>>>> 8f9db1e65eb86c77989410c82d865eeebdeff284
       subject: `Confirmação de Presença - ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">

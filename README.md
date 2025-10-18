@@ -1,73 +1,104 @@
-# Welcome to your Lovable project
+# Mundo do Bernardo - Site de Festa de Aniversário
 
-## Project info
+Site responsivo para festa de aniversário do Bernardo, desenvolvido com React e otimizado para dispositivos móveis.
 
-**URL**: https://lovable.dev/projects/2ea5dfa2-736f-459a-a475-9182c85cf705
+## 🎉 Sobre o Projeto
 
-## How can I edit this code?
+Este é um site especial criado para a festa de aniversário do Bernardo, com design lúdico e funcionalidades interativas. O site inclui:
 
-There are several ways of editing your application.
+- **Design responsivo** otimizado para mobile
+- **Formulário de confirmação** de presença (RSVP)
+- **Contador de dias** para a festa
+- **Música de fundo** opcional
+- **Animações** e elementos visuais divertidos
+- **Integração com mapas** para localização
+- **Sistema de e-mail** para confirmações
 
-**Use Lovable**
+## 🚀 Como Executar o Projeto
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/2ea5dfa2-736f-459a-a475-9182c85cf705) and start prompting.
+### Pré-requisitos
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js (versão 16 ou superior)
+- npm ou yarn
 
-**Use your preferred IDE**
+### Instalação
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/gcolumbina25/bernardos-big-bash.git
+   ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+2. **Navegue para o diretório:**
+   ```bash
+   cd bernardos-big-bash
+   ```
 
-Follow these steps:
+3. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+4. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+5. **Abra no navegador:**
+   ```
+   http://localhost:8080
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🛠️ Tecnologias Utilizadas
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+- **React 18** - Biblioteca de interface
+- **TypeScript** - Tipagem estática
+- **Vite** - Build tool e servidor de desenvolvimento
+- **Tailwind CSS** - Framework de CSS
+- **shadcn/ui** - Componentes de interface
+- **EmailJS** - Serviço de envio de e-mails
+- **Lucide React** - Ícones
 
-**Edit a file directly in GitHub**
+## 📧 Configuração do E-mail
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Para que o formulário de confirmação funcione, é necessário configurar o EmailJS:
 
-**Use GitHub Codespaces**
+1. Siga as instruções no arquivo `EMAILJS_SETUP.md`
+2. Configure suas credenciais no arquivo `src/services/emailService.ts`
+3. Teste o formulário para garantir que os e-mails chegam
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🎨 Personalização
 
-## What technologies are used for this project?
+O site pode ser facilmente personalizado:
 
-This project is built with:
+- **Cores:** Edite o arquivo `src/index.css`
+- **Conteúdo:** Modifique `src/pages/Index.tsx`
+- **Assets:** Substitua as imagens na pasta `src/assets/`
+- **Data da festa:** Altere no arquivo `src/pages/Index.tsx`
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📱 Deploy
 
-## How can I deploy this project?
+O projeto pode ser deployado em qualquer plataforma que suporte React:
 
-Simply open [Lovable](https://lovable.dev/projects/2ea5dfa2-736f-459a-a475-9182c85cf705) and click on Share -> Publish.
+- **Netlify** (recomendado)
+- **Vercel**
+- **GitHub Pages**
+- **Heroku**
 
-## Can I connect a custom domain to my Lovable project?
+### Deploy no Netlify
 
-Yes, you can!
+1. Conecte seu repositório GitHub ao Netlify
+2. Configure o build command: `npm run build`
+3. Configure o publish directory: `dist`
+4. Faça o deploy!
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📄 Licença
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Este projeto foi desenvolvido por **Columbina Creative Designer**.
+
+## 🤝 Contribuição
+
+Este é um projeto privado para a festa do Bernardo. Para dúvidas ou sugestões, entre em contato através do link no rodapé do site.
+
+---
+
+**Desenvolvido com ❤️ para a festa do Bernardo**
